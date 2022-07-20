@@ -1,5 +1,4 @@
-const db = require('../dbconfig'
-)
+const db = require('../dbconfig')
 class Blog {
     constructor(data){
         this.id = data.id
