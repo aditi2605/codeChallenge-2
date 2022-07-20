@@ -1,5 +1,14 @@
 const Blog = require('../models/blog');
 
+async function index (req, res) {
+    try {
+        const books = await Blog.all;
+        res.status(200).json(blog)
+    } catch (err) {
+        res.status(500).json({err})
+    }
+}
+
 async function create(req, res) {
     try {
         const blog = await Blog.create(req.body);
@@ -9,7 +18,7 @@ async function create(req, res) {
     }
 }
 
-async function show (req, res) {
+async function show(req, res) {
     try {
         const blog = await Blog.findById(req.params.id);
         res.status(204).json({...blog});
