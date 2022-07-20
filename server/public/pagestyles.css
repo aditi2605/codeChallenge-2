@@ -9,9 +9,9 @@ body{
 div#blog {
     margin-top: 2rem;
     width: 60%;
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
+    display:flex;
 }
 
 div#blog *{

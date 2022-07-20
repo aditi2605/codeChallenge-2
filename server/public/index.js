@@ -14,12 +14,23 @@ form.addEventListener('submit', async (e)=>{
         body: e.target['form-txta'].value
         }),
     });
-    let length = document.getElementById('posts').childNodes.length
-    window.location.href = `http://localhost:3000/blogs/${length}`
+    
+    loadPage()
+    
     }catch(err){
         console.log("error posting blogs")
     }
 })
+
+function loadPage(){
+    setTimeout(()=>{
+        let length = document.getElementById('posts').childNodes.length
+        window.location.href = `http://localhost:3000/blogs/${length}`
+    }, 4000)
+    let loadDiv = document.getElementById('loading')
+    loadDiv.style.display = "flex"
+    
+}
 
 function appendElement(postData, id){
     let a = document.createElement('a');
