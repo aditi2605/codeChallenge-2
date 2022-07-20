@@ -13,9 +13,9 @@ form.addEventListener('submit', async (e)=>{
         name: e.target['form-author'].value,
         body: e.target['form-txta'].value
         }),
-    });  
-    let length = document.getElementById('post-list').children.length
-    window.location.href = `http://localhost:3000/blogs/${length-1}`
+    });
+    let length = document.getElementById('posts').childNodes.length
+    window.location.href = `http://localhost:3000/blogs/${length}`
     }catch(err){
         console.log("error posting blogs")
     }
@@ -38,7 +38,6 @@ async function getBlogs(){
         let response = await fetch("http://localhost:3000/blogs")
         let data = await response.json()
         let i = 1
-        console.log(data)
         data.blogs.forEach(element => {
             console.log(element)
             appendElement(element, i)
