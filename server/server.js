@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 const ejs = require('ejs')
-const Blog = require('./models/blog')
+const blogsController = require('./controllers/blogs')
 //require router
 
 app.use(cors())
@@ -14,21 +14,10 @@ app.get('/', (req,res) => {
     res.send('Hello World')
 })
 
-app.post('/blogs', (req, res) => {
-    const data = req.body;
-    const newBlog = Blog.create(data);
-    res.status(201).send({message: `${newBlog.title} successfully added`})
-})
+app.post('/blogs', blogsController.create)
 
-app.get('/blogs', (req, res) => {
-    const blogs = Blog.all;
-    res.status(200).send(blogs);
-})
+app.get('/blogs', blogsController.index)
 
-app.get('/blogs/:id', (req,res) => {
-    const blogId = parseInt(req.params.id);
-    const numOfBlogs = Blog.all.length;
-    res.status(200).send(selectedBlog);
-})
+app.get('/blogs/:id', blogsController.show)
 
 module.exports = app
