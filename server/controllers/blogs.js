@@ -20,7 +20,8 @@ async function create(req, res) {
 
 async function show(req, res) {
     try {
-        const blog = await Blog.findById(req.params.id);
+        const blog = await Blog.findById(parseInt(req.params.id));
+
         res.status(204).json({...blog});
     } catch (err) {
         res.status(404).json({err});

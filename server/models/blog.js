@@ -34,7 +34,7 @@ class Blog {
     static create(title, name, body) {
         return new Promise (async (resolve, reject) => {
             try {
-                let blogData = await db.query(`INSERT INTO blogs (title, name, body) VALUES ($1, $2, $3) RETURNING *;`, [ title, name, body]);
+                let blogData = await db.query(`INSERT INTO blogs (title, name, body) VALUES ($1, $2, $3) RETURNING id;`, [ title, name, body]);
                 let newBlog = new Blog(blogData.rows[0]);
                 resolve(newBlog);
             } catch (err) {
