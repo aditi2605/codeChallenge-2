@@ -2,7 +2,7 @@ let form = document.getElementById('form-div')
 form.addEventListener('submit', async (e)=>{
     e.preventDefault()
     try{
-        let response = await fetch("http://localhost:3000", {
+        let response = await fetch("http://localhost:3000/blogs", {
     method: "POST",
     headers: {
       Accept: "application/json",
