@@ -5,6 +5,7 @@ class Blog {
         this.title = data.title
         this.name = data.name
         this.body = data.body
+        this.date = data.date
     }
 
     static get all() {
@@ -34,7 +35,8 @@ class Blog {
     static create(title, name, body) {
         return new Promise (async (resolve, reject) => {
             try {
-                let blogData = await db.query(`INSERT INTO blogs (title, name, body) VALUES ($1, $2, $3) RETURNING id;`, [ title, name, body]);
+                let date = new Date().toUTCString().slice(0, 16);
+                let blogData = await db.query(`INSERT INTO blogs (title, name, body, date) VALUES ($1, $2, $3, $4) RETURNING id;`, [ title, name, body, date]);
                 let newBlog = new Blog(blogData.rows[0]);
                 resolve(newBlog);
             } catch (err) {
