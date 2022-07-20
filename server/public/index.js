@@ -29,7 +29,7 @@ function appendElement(postData, id){
     p.innerText = postData.name
     let div = document.createElement('div')
     div.append(a, p)
-    let postList = document.getElementById('post-list')
+    let postList = document.getElementById('posts')
     postList.append(div);
 }
 

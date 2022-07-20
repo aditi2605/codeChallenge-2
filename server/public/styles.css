@@ -15,7 +15,6 @@ form {
     justify-content: center;
     width: 50%;
     margin-top: 2rem;
-    
 }
 
 form * {
@@ -55,3 +54,20 @@ form *:focus{
     margin-left: 5rem;
     font-size: 1.5rem;
 }
+
+#posts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+#posts div{
+    flex-basis: 30%;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid black
+}
+
+
