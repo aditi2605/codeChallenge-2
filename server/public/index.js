@@ -13,16 +13,18 @@ form.addEventListener('submit', async (e)=>{
         name: e.target['form-author'].value,
         body: e.target['form-txta'].value
         }),
-    });   
+    });  
+    let length = document.getElementById('post-list').children.length
+    window.location.href = `http://localhost:3000/blogs/${length-1}`
     }catch(err){
         console.log("error posting blogs")
     }
 })
 
-function appendElement(postData){
+function appendElement(postData, id){
     let a = document.createElement('a');
     a.innerText = postData.title
-    a.href = 'http://localhost:3000/blogs/id'//TODO create dynamic url for the title
+    a.href = `http://localhost:3000/blogs/${id}`
     let p = document.createElement('p')
     p.innerText = postData.name
     let div = document.createElement('div')
@@ -33,11 +35,14 @@ function appendElement(postData){
 
 async function getBlogs(){
     try{
-        let response = await fetch("localhost:3000/blogs")
+        let response = await fetch("http://localhost:3000/blogs")
         let data = await response.json()
-        data.forEach(element => {
+        let i = 1
+        console.log(data)
+        data.blogs.forEach(element => {
             console.log(element)
-            appendElement(element)
+            appendElement(element, i)
+            i++;
         });
     }catch(err){
         console.log("error fetching blogs")

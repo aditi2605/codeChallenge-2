@@ -11,7 +11,7 @@ app.set('view engine','ejs')
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req,res) => {
-    res.send('Hello World')
+    res.sendFile('index.html')
 })
 
 app.post('/blogs', blogsController.create)
