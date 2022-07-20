@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 const ejs = require('ejs')
-const blog = require('./models/blog')
+const Blog = require('./models/blog')
 //require router
 
 app.use(cors())
