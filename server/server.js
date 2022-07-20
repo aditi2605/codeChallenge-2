@@ -16,8 +16,9 @@ app.get('/', (req,res) => {
 
 app.post('/blogs', blogsController.create)
 
+app.get('/blogs/:id', blogsController.show)
+
 app.get('/blogs', blogsController.index)
 
-app.get('/blogs/:id', blogsController.show)
 
 module.exports = app
