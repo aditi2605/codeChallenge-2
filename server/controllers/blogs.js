@@ -1,9 +1,16 @@
 const Blog = require('../models/blog');
 
+<<<<<<< HEAD
 async function index (req, res) {
     try {
         const books = await Blog.all;
         res.status(200).json(blog)
+=======
+async function index(req,res) {
+    try {
+        const blogs = await Blog.all
+        res.status(200).json({blogs})
+>>>>>>> ce6f039af9723296b4a24b9f54d1da2ff7e36a2a
     } catch (err) {
         res.status(500).json({err})
     }
@@ -14,7 +21,7 @@ async function create(req, res) {
         const blog = await Blog.create(req.body);
         res.status(201).json(blog)
     } catch (err) {
-        red.status(422).json({err})
+        res.status(422).json({err})
     }
 }
 
@@ -27,4 +34,4 @@ async function show(req, res) {
     };
 }
 
-module.exports = { create, show}
+module.exports = { index, create, show}
