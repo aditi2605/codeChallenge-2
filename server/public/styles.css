@@ -16,6 +16,7 @@ form {
     justify-content: center;
     width: 50%;
     margin-top: 2rem;
+    background-color: white;
     
 }
 
@@ -110,3 +111,67 @@ div#loading img{
     opacity: 100%;
 }
 
+div#loading h1{
+    position: absolute;
+    left:50%;
+    top:60%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-size: 3rem;
+    font-family: 'Tapestry', cursive;
+}
+
+div.pigeon {
+    width: 10rem;
+    height: 10rem;
+    /* background-image: url('./carrier-pigeon.jpg');
+    background-size: contain;
+    background-repeat: no-repeat; */
+    animation: pigeon-fly 15s linear infinite;
+    position: absolute;
+}
+
+div.pigeon::after{
+    content: '';
+    width: 10rem;
+    height: 10rem;
+    background-image: url('./carrier-pigeon.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: pigeon-flutter 1s linear infinite alternate;
+}
+
+@keyframes pigeon-fly {
+    0%{
+        left:-15%;
+        transform: scaleX(1);
+        top:5%;
+    }
+    49%{
+        transform: scaleX(1);
+        top: 5%;
+    }
+    50%{
+        left:100%;
+        transform: scaleX(-1);
+        top: 35%;
+    }
+    99%{
+        transform: scaleX(-1)
+    }
+    100%{
+        left:-10%;
+        transform: scaleX(1);
+        top:35%;
+    }
+}
+
+@keyframes pigeon-flutter{
+    from{
+        transform: rotate(-10deg);
+    }
+    to{
+        transform: rotate(10deg)
+    }
+}
