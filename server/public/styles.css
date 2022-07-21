@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Edu+VIC+WA+NT+Beginner&family=Koulen&family=Tapestry&family=ZCOOL+XiaoWei&display=swap'); 
+
+body{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#form-div{
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin-top: 2rem;
+    background-color: white;
+    
+}
+
+form * {
+    border: none;
+    margin: 0.5rem 0 0.5rem 0;
+    opacity: 90%;
+}
+
+form #form-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+form #form-author{
+    font-size: 0.8rem;
+}
+
+form #form-txta{
+    font-size: 1rem;
+    resize: none;
+}
+
+form #form-btn{
+    width: 6rem;
+    height: 2rem;
+    align-self: flex-end;
+    font-size: 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    border: 2px solid black
+}
+
+form *:focus{
+    border: none;
+}
+
+#post-list h1{
+    margin-left: 5rem;
+    font-size: 1.5rem;
+    
+}
+
+#posts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+#posts div{
+    flex-basis: 22%;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px #888888;
+}
+
+#posts div:hover{
+    transform: scale(1.05);
+}
+
+#posts div *{
+    margin-left: 1rem;
+}
+
+#posts div a{
+    font-size: 1.5rem;
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
+#posts div p{
+    font-size: 1.2rem;
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
+div#loading{
+    position: absolute;
+    background-color: rgba(0,0,0,0.6);
+    display:none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+div#loading img{
+    object-fit: contain;
+    transform: scale(1.5);
+    opacity: 100%;
+}
+
+div#loading h1{
+    position: absolute;
+    left:50%;
+    top:60%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-size: 3rem;
+    font-family: 'Tapestry', cursive;
+}
+
+div.pigeon {
+    width: 10rem;
+    height: 10rem;
+    /* background-image: url('./carrier-pigeon.jpg');
+    background-size: contain;
+    background-repeat: no-repeat; */
+    animation: pigeon-fly 15s linear infinite;
+    position: absolute;
+}
+
+div.pigeon::after{
+    content: '';
+    width: 10rem;
+    height: 10rem;
+    background-image: url('./carrier-pigeon.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: pigeon-flutter 1s linear infinite alternate;
+}
+
+@keyframes pigeon-fly {
+    0%{
+        left:-15%;
+        transform: scaleX(1);
+        top:5%;
+    }
+    49%{
+        transform: scaleX(1);
+        top: 5%;
+    }
+    50%{
+        left:100%;
+        transform: scaleX(-1);
+        top: 35%;
+    }
+    99%{
+        transform: scaleX(-1)
+    }
+    100%{
+        left:-10%;
+        transform: scaleX(1);
+        top:35%;
+    }
+}
+
+@keyframes pigeon-flutter{
+    from{
+        transform: rotate(-10deg);
+    }
+    to{
+        transform: rotate(10deg)
+    }
+}
